@@ -1,4 +1,4 @@
-apt-get install kodi xorg xserver-xorg-legacy dbus-x11 alsa-utils openssh-server usbmount lirc lightdm-gtk-greeter
+`apt-get install kodi xorg xserver-xorg-legacy dbus-x11 alsa-utils openssh-server usbmount lirc lightdm-gtk-greeter`
 
 #needed to get alsa (sound) and proper graphics card drivers to be seen/used by kodi.
 usermod -a -G audio,video kodi
