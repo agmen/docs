@@ -29,20 +29,23 @@ RestartSec = 5
 
 [Install]
 WantedBy = multi-user.target
-Enable the new systemd service
-systemctl enable kodi
-Add polkit entry for systemd's logind
-Create this polkit file, (this allows the poweroff/shutdown menu to be available in kodi)
+```
 
-/etc/polkit-1/localauthority/50-local.d/kodi.pkla
+#Enable the new systemd service
+`systemctl enable kodi`
 
+#Add polkit entry for systemd's logind (this allows the poweroff/shutdown menu to be available in kodi)
+
+`vim /etc/polkit-1/localauthority/50-local.d/kodi.pkla`
+
+```
 [kodi user]
 Identity=unix-user:kodi
 Action=org.freedesktop.login1.*
 ResultAny=yes
 ResultInactive=no
-ResultActive=yes```
-
+ResultActive=yes
+```
 
 #Configure Xserver to start Kodi on startup
 
@@ -62,8 +65,5 @@ Name=Kodi
 Comment=This session will start Kodi Media Center
 Exec=kodi-standalone
 TryExec=kodi-standalone
-Type=Application```
-
-
-
-
+Type=Application
+```
