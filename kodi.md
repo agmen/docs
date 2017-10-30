@@ -1,19 +1,19 @@
 `apt-get install kodi xorg xserver-xorg-legacy dbus-x11 alsa-utils openssh-server usbmount lirc lightdm-gtk-greeter`
 
 #needed to get alsa (sound) and proper graphics card drivers to be seen/used by kodi.
-usermod -a -G audio,video kodi
+`usermod -a -G audio,video kodi`
 
 #set these two options for xwrapper else wont start.
-echo -e "allowed_users=anybody\nneeds_root_rights=yes" >> /etc/X11/Xwrapper.config
+`echo -e "allowed_users=anybody\nneeds_root_rights=yes" >> /etc/X11/Xwrapper.config`
 
 #add ntfs ability to usbmount so can auto mount
-sed -i "s/vfat/ntfs vfat/" /etc/usbmount/usbmount.conf
+`sed -i "s/vfat/ntfs vfat/" /etc/usbmount/usbmount.conf`
 
 #create systemd service (unit file)
 
-vim /etc/systemd/system/kodi.service
+`vim /etc/systemd/system/kodi.service`
 
-[Unit]
+```[Unit]
 Description = Kodi Media Center
 
 After = systemd-user-sessions.service sound.target
@@ -41,28 +41,28 @@ Identity=unix-user:kodi
 Action=org.freedesktop.login1.*
 ResultAny=yes
 ResultInactive=no
-ResultActive=yes
+ResultActive=yes```
 
 
 #Configure Xserver to start Kodi on startup
 
-vim /etc/lightdm/lightdm.conf
+`vim /etc/lightdm/lightdm.conf`
 
-[SeatDefaults]
+[```SeatDefaults]
 autologin-user=kodi
 autologin-user-timeout=0
 autologin-session=kodi
 greeter-session=lightdm-gtk-greeter
- 
+```
 
-vim /usr/share/xsessions/kodi.desktop
+`vim /usr/share/xsessions/kodi.desktop`
 
-[Desktop Entry]
+```[Desktop Entry]
 Name=Kodi
 Comment=This session will start Kodi Media Center
 Exec=kodi-standalone
 TryExec=kodi-standalone
-Type=Application
+Type=Application```
 
 
 
