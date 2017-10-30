@@ -13,7 +13,8 @@
 
 `vim /etc/systemd/system/kodi.service`
 
-```[Unit]
+```
+[Unit]
 Description = Kodi Media Center
 
 After = systemd-user-sessions.service sound.target
@@ -51,7 +52,8 @@ ResultActive=yes
 
 `vim /etc/lightdm/lightdm.conf`
 
-[```SeatDefaults]
+```
+[SeatDefaults]
 autologin-user=kodi
 autologin-user-timeout=0
 autologin-session=kodi
@@ -60,7 +62,8 @@ greeter-session=lightdm-gtk-greeter
 
 `vim /usr/share/xsessions/kodi.desktop`
 
-```[Desktop Entry]
+```
+[Desktop Entry]
 Name=Kodi
 Comment=This session will start Kodi Media Center
 Exec=kodi-standalone
