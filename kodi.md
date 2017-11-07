@@ -70,3 +70,10 @@ Exec=kodi-standalone
 TryExec=kodi-standalone
 Type=Application
 ```
+
+#randmon .xsession errors
+https://forum.kodi.tv/showthread.php?tid=304441
+
+
+find /media/T2 -type d -exec setfacl -m d:g:kodi:rwx {} \;
+setfacl -Rm g:kodi:rwX /media/T2/
