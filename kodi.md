@@ -77,3 +77,13 @@ https://forum.kodi.tv/showthread.php?tid=304441
 
 find /media/T2 -type d -exec setfacl -m d:g:kodi:rwx {} \;
 setfacl -Rm g:kodi:rwX /media/T2/
+
+cat /usr/lib/tmpfiles.d/sickbeard.conf
+```
+d /var/run/sickbeard 0755 sickbeard sickbeard -
+```
+
+```
+systemd-tmpfiles --create
+```
+
