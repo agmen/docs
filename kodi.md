@@ -1,8 +1,11 @@
 Minimanl install of:
 
 Distributor ID: Ubuntu
+
 Description:    Ubuntu 16.04.3 LTS
+
 Release:        16.04
+
 Codename:       xenial
 
 `apt-get install kodi xorg xserver-xorg-legacy dbus-x11 alsa-utils openssh-server usbmount lirc lightdm-gtk-greeter`
