@@ -94,8 +94,8 @@ cat /home/user/.xsession << EOF
 exec startfluxbox
 EOF
 ```
-=======
-#randmon .xsession errors
+
+#random .xsession errors
 https://forum.kodi.tv/showthread.php?tid=304441
 
 
