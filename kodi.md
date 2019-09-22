@@ -1,3 +1,11 @@
+Minimanl install of:
+```
+Distributor ID: Ubuntu
+Description:    Ubuntu 16.04.3 LTS
+Release:        16.04
+Codename:       xenial
+```
+
 `apt-get install kodi xorg xserver-xorg-legacy dbus-x11 alsa-utils openssh-server usbmount lirc lightdm-gtk-greeter`
 
 #needed to get alsa (sound) and proper graphics card drivers to be seen/used by kodi.
@@ -71,10 +79,6 @@ TryExec=kodi-standalone
 Type=Application
 ```
 
-find /media/T2 -type d -exec setfacl -m d:g:kodi:rwx {} \;
-setfacl -Rm g:kodi:rwX /media/T2/
-
-
 #Allow desktop sessions
 ```
 cat /usr/share/xsessions/custom-desktop << EOF
@@ -89,4 +93,20 @@ cat /home/user/.xsession << EOF
 #!/usr/bin/env bash
 exec startfluxbox
 EOF
+```
+=======
+#randmon .xsession errors
+https://forum.kodi.tv/showthread.php?tid=304441
+
+
+find /media/T2 -type d -exec setfacl -m d:g:kodi:rwx {} \;
+setfacl -Rm g:kodi:rwX /media/T2/
+
+cat /usr/lib/tmpfiles.d/sickbeard.conf
+```
+d /var/run/sickbeard 0755 sickbeard sickbeard -
+```
+
+```
+systemd-tmpfiles --create
 ```
