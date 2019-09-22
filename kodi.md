@@ -70,3 +70,23 @@ Exec=kodi-standalone
 TryExec=kodi-standalone
 Type=Application
 ```
+
+find /media/T2 -type d -exec setfacl -m d:g:kodi:rwx {} \;
+setfacl -Rm g:kodi:rwX /media/T2/
+
+
+#Allow desktop sessions
+```
+cat /usr/share/xsessions/custom-desktop << EOF
+[Desktop Entry]
+Name=Xsession
+Exec=/etc/X11/Xsession
+EOF
+```
+
+```
+cat /home/user/.xsession << EOF
+#!/usr/bin/env bash
+exec startfluxbox
+EOF
+```
