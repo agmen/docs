@@ -110,3 +110,58 @@ d /var/run/sickbeard 0755 sickbeard sickbeard -
 ```
 systemd-tmpfiles --create
 ```
+
+#With openbox to allow external programs to launch
+```
+wget -O openbox-kodi-master.zip https://github.com/lufinkey/kodi-openbox/archive/master.zip
+```
+
+```
+unzip openbox-master.zip
+```
+
+```
+cd kodi-openbox-master
+bash ./build.sh
+sudo dpkg -i kodi-openbox.deb
+```
+
+```
+cat << EOF > /etc/lightdm/lightdm.conf
+[Seat:*]
+autologin-user=kodi
+autologin-session=kodi-openbox
+sudo reboot
+```
+
+#Configure Advanced Launcher
+
+```
+https://github.com/SpiralCut/plugin.program.advanced.launcher/archive/master.zip -O advanced-launcher-master.zip
+```
+
+In Kodi, add the Advanced Launcher add-on. How to install an add-on from a .zip is explained on the Kodi Wiki. The .zip is located in the Home folder and is named advanced-launcher-master.zip.
+
+Navigate to your program add-ons in the Aeon Nox skin. It is located on the Home Screen under the title Apps.
+
+To add a launcher for Steam do the following:
+* Open the add-on
+* Open the Default folder
+* Bring up the Context Menu and select Standalone Launcher
+* In the Path dialogue that appers select Root and navigate to: /usr/bin/kodi-openbox-runprogram. Press Done.
+* In the Arguments dialogue enter the argument: steam -bigpicture
+* In the Title dialogue enter the name Steam
+* In the Platform dialogue select Linux
+* Leave the next two dialogues blank.
+* Mark the Steam launcher and bring up the Context Menu and add it to Favorites.
+
+Create a launcher for EmulationStation:
+* Open the add-on
+* Open the Default folder
+* Bring up the Context Menu and select Standalone Launcher
+* In the Path dialogue that appers select Root and navigate to: /usr/bin/kodi-openbox-runprogram. Press Done.
+* In the Arguments dialogue enter the argument: emulationstation
+* In the Title dialogue enter the name Emulation
+* In the Platform dialogue select Linux
+* Leave the next two dialogues blank.
+* Mark the Emulation launcher and bring up the Context Menu and add it to Favorites.
